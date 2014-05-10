@@ -1,0 +1,52 @@
+function addMobToRenderer(renderer) {
+var model = renderer.getModel();
+     
+    var head = model.getPart("head");
+    var body = model.getPart("body");
+    var rarm = model.getPart("rightArm");
+    var larm = model.getPart("leftArm");
+    var rleg = model.getPart("rightLeg");
+    var lleg = model.getPart("leftLeg");
+     
+    head.clear();
+    head.setTextureOffset(0, 0);
+    head.addBox(-1, 13, -7, 5, 4, 5);
+
+    head.setTextureOffset(0, 0);
+    head.addBox(-0.5,12,-4,1,1,2);
+
+head.setTextureOffset(0, 0);
+head.addBox(2.5,12,-4,1,1,2);
+
+head.setTextureOffset(0, 0);
+head.addBox(0, 15, -8, 3, 2, 1);
+
+ head.setRotationPoint(0, 0,0);
+
+    body.clear();
+    body.setTextureOffset(0, 0);
+    body.addBox(-0.5, 14, -2, 4, 6, 16);
+ 
+    
+ rarm.clear();
+    larm.clear();
+ 
+    rleg.clear();
+    rleg.setTextureOffset(0, 23);
+   rleg.addBox(0.9, 1.9, 0, 2, 10, 2);
+
+rleg.setTextureOffset(0, 0);
+ rleg.addBox(0.9, 6, 11, 2, 6, 2);
+
+    lleg.clear();
+    lleg.setTextureOffset(0,0);
+    lleg.addBox(0.1, 1.9, 0, 2, 10, 2);
+lleg.setTextureOffset(0,0);
+    lleg.addBox(0.1, 6, 11, 2, 6, 2);
+}
+var Renderer = Renderer.createHumanoidRenderer();
+addMobToRenderer(Renderer);
+function attackHook(attacker, victim)
+{
+Entity.setRenderType(victim, Renderer.renderType);
+}
