@@ -1,3 +1,4 @@
+ModPE.overrideTexture("images/mob/ocelot.png","http://i.imgur.com/P55qbJl.png"); 
 function addMobToRenderer(renderer) {
 var model = renderer.getModel();
      
@@ -10,43 +11,44 @@ var model = renderer.getModel();
      
     head.clear();
     head.setTextureOffset(0, 0);
-    head.addBox(-1, 13, -7, 5, 4, 5);
+    head.addBox(-1, 14, -7, 5, 4, 5);
 
-    head.setTextureOffset(0, 0);
-    head.addBox(-0.5,12,-4,1,1,2);
+    head.setTextureOffset(11, 4);
+    head.addBox(-0.5,13,-4,1,1,2);
 
-head.setTextureOffset(0, 0);
-head.addBox(2.5,12,-4,1,1,2);
+head.setTextureOffset(11, 6);
+head.addBox(2.5,13,-4,1,1,2);
 
-head.setTextureOffset(0, 0);
-head.addBox(0, 15, -8, 3, 2, 1);
+head.setTextureOffset(1, 25);
+head.addBox(0, 16, -8, 3, 2, 1);
 
  head.setRotationPoint(0, 0,0);
 
     body.clear();
     body.setTextureOffset(0, 0);
-    body.addBox(-0.5, 14, -2, 4, 6, 16);
+    body.addBox(-0.5, 15, -2, 4, 6, 16);
  
     
  rarm.clear();
     larm.clear();
  
     rleg.clear();
-    rleg.setTextureOffset(0, 23);
-   rleg.addBox(0.9, 1.9, 0, 2, 10, 2);
+    rleg.setTextureOffset(40, 0);
+   rleg.addBox(0.9, 2.9, 0, 2, 9, 2);
 
-rleg.setTextureOffset(0, 0);
- rleg.addBox(0.9, 6, 11, 2, 6, 2);
+rleg.setTextureOffset(40, 0);
+ rleg.addBox(0.9,6, 11, 2, 5, 2);
 
     lleg.clear();
-    lleg.setTextureOffset(0,0);
-    lleg.addBox(0.1, 1.9, 0, 2, 10, 2);
-lleg.setTextureOffset(0,0);
-    lleg.addBox(0.1, 6, 11, 2, 6, 2);
+    lleg.setTextureOffset(40,0);
+    lleg.addBox(0.1, 2.9, 0, 2, 9, 2);
+lleg.setTextureOffset(40, 0);
+    lleg.addBox(0.1, 6, 11, 2, 5, 2);
 }
 var Renderer = Renderer.createHumanoidRenderer();
 addMobToRenderer(Renderer);
 function attackHook(attacker, victim)
 {
+Entity.setMobSkin(victim,"images/mob/ocelot.png");
 Entity.setRenderType(victim, Renderer.renderType);
 }
